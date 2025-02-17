@@ -38,7 +38,7 @@ export default function Introduction() {
 
     const handleDownload = () => {
       const link = document.createElement("a");
-      link.href = "/vivek.pdf.pdf";
+      link.href = "/vivek.pdf";
       link.download = "Vivek_Kumar_Resume.pdf";
       document.body.appendChild(link);
       link.click();

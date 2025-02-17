@@ -21,7 +21,7 @@ const projects = [
     description: "A platform to connect blood donors with recipients.",
     image: "./blooddonation.jpg",
     technologies: ["HTML", "CSS", "JavaScript","React","Express","RESTful APIs" ,"Mongodb"],
-     sourceUrl: "http://adityauniversity.in:7006/home",
+     sourceUrl: "https://adityauniversity.in/blooddonation/home",
     features: [
       "Donor registration",
       "Real-time database",
@@ -72,7 +72,7 @@ export default function Projects() {
   onHide={() => setSelectedProject(null)} 
   centered
   dialogClassName="modal-dialog-centered custom-modal"
-  style={{zIndex:99999}}
+  style={{zIndex:999999}}
 >
 <Modal.Header style={{ position: "relative" }}>
   <Modal.Title style={{ color: "black" }}>{selectedProject?.title}</Modal.Title>
