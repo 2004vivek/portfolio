@@ -50,11 +50,11 @@ export default function Projects() {
   return (
     <div className='project_container'>
       <h2 className='about'>Projects</h2>
-      <div className='project_inner'>
+      <div className='project_inner' >
         <div className="card-container d-flex flex-wrap justify-content-center">
           {projects.map((project, index) => (
-            <div className="card m-3" key={index} onClick={() => setSelectedProject(project)} style={{ width: '20rem', cursor: 'pointer',   backgroundColor: '#11152C', 
-              color: 'white'  }}>
+            <div className="card" key={index} onClick={() => setSelectedProject(project)} style={{ width: '24rem', cursor: 'pointer',   backgroundColor: '#11152C', 
+              color: 'white'}}>
                 <div className='meracard'>
               <img src={project.image} className="card-img-top" alt={project.title} style={{height:'100%' ,width:'100%'}} />
                 </div>
