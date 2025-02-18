@@ -260,6 +260,8 @@ body{
 }
 .about_design{
   display: flex;
+  margin-bottom: 20px !important;
+
   justify-content: center;
   width: 15%;
   margin: auto;
@@ -413,6 +415,60 @@ body{
   align-items: center;
   transition: all 0.5s linear; 
 }
+/* certification */
+
+.certification-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cert-card {
+ width: 100%;
+ overflow: hidden;
+ height: 250px;
+ /* border: 1px solid red; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  text-align: center;
+  position: relative;
+  /* transition: transform 0.3s ease-in-out; */
+}
+
+
+.cert-details{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.cert-card:hover {
+  transform: scale(1.05);
+}
+
+.cert-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ 
+  margin-bottom: 10px;
+}
+
+.cert-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.cert-issuer,
+.cert-date {
+  font-size: 14px;
+  color: #777;
+}
+
 .slick-dots{
   display: none !important;
 }

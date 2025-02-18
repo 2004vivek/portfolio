@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import Skills from './Skills';
 import Projects from './Projects';
 import { Element } from 'react-scroll';
+import Certifications from './Certifications';
 export default function Home() {
   return (
     <>
@@ -23,7 +24,7 @@ export default function Home() {
         <Projects />
       </Element>
       <Element name="certifications" className="element">
-        
+        <Certifications/>
       </Element>
       <Element name="contacts" className="element">
         <Contact />
