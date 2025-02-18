@@ -51,7 +51,7 @@ export default function Certifications() {
               className="cert-image"
               // whileHover={{ filter: 'brightness(0.5)' }}
             />
-            <div className="cert-details">
+            {/* <div className="cert-details">
               <motion.h3
                 className="cert-title"
                 // whileHover={{ scale: 1.1 }}
@@ -73,7 +73,7 @@ export default function Certifications() {
               >
                 {cert.date}
               </motion.p>
-            </div>
+            </div> */}
           </motion.div>
         ))}
       </div>

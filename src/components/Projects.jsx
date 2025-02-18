@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import { motion, useInView } from 'framer-motion';
-
+import Tilt from 'react-parallax-tilt';
 const projects = [
   {
     title: "Skill Grow",
@@ -66,15 +66,18 @@ export default function Projects() {
   return (
     <div className='project_container'>
       <h2 className='about'>Projects</h2>
-      <div className='project_inner' >
+      <div className='project_inner'>
         <motion.div 
-          className="card-container d-flex flex-wrap justify-content-center"
+          className="card-container d-flex flex-wrap justify-content-center "
           ref={ref}
+          
           initial={{ opacity: 0, y: 50 }} 
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {projects.map((project, index) => (
+            <Tilt  tiltReverse={true} className='parallax-effect' perspective={500} tiltMaxAngleX={10}
+            tiltMaxAngleY={10} glareEnable={true} glareMaxOpacity={0.5} glareColor="rgb(255,255,255,0.4)" glarePosition="all" glareBorderRadius="10px">
             <motion.div 
               key={index} 
               className="card" 
@@ -83,7 +86,8 @@ export default function Projects() {
                 width: '24rem', 
                 cursor: 'pointer',   
                 backgroundColor: '#11152C', 
-                color: 'white'
+                color: 'white',
+                transform: 'translateZ(190px)'
               }}
               initial={{ opacity: 0, y: '100%' }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -98,6 +102,7 @@ export default function Projects() {
                 <p className="card-text" style={{color:'hsl(0, 2.60%, 77.10%)',fontSize:'14px'}}>{project.description}</p>
               </div>
             </motion.div>
+          </Tilt>
           ))}
         </motion.div>
       </div>

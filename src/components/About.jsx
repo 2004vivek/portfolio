@@ -7,7 +7,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 export default function About() {
   const ref1=useRef(null)
-    const inview=useInView(ref1);
+    const inview=useInView(ref1,{ once: true });
     const slideinvariant={
       hidden:{opacity:0,x:-100},
       visible:{opacity:1,x:0,transition:{ type: 'spring', 
