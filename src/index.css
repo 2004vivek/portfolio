@@ -949,7 +949,8 @@ margin-top: 18px;
   }
   .introduction_container{
    flex-direction: column-reverse;
-   padding: 0 20px;
+   padding: 0 25px;
+   margin: 0 7px;
 
   }
   .introduction_left{
@@ -1013,9 +1014,6 @@ margin-top: 18px;
   .certification-grid{
     gap: 20px;
   }
-  .introduction_container{
-    justify-content: center;
-  }
   .download_btn{
     margin-bottom: 2rem;
   }
@@ -1025,6 +1023,8 @@ margin-top: 18px;
   .introduction_container{
     flex-direction: column-reverse;
     padding: 0 20px;
+    justify-content: center;
+    margin-top: 1rem;
    }
    .about1_container{
     justify-content: center;
@@ -1080,10 +1080,7 @@ margin-top: 18px;
   }
 }
 @media only screen and (max-width:1024px){
-  .introduction_container{
-    width: auto;
-    
-  }
+
   .about_design{
     width: auto;
   }
@@ -1093,6 +1090,7 @@ margin-top: 18px;
   .introduction_container{
     flex-direction: column-reverse;
     padding: 0 20px;
+    width: auto;
    }
    .download_btn{
     margin-bottom: 1.6rem;
