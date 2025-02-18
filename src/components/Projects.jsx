@@ -106,8 +106,9 @@ export default function Projects() {
         show={!!selectedProject} 
         onHide={() => setSelectedProject(null)} 
         centered
+      
         dialogClassName="modal-dialog-centered custom-modal"
-        style={{zIndex:999999}}
+        style={{zIndex:9999999,}}
       >
         <Modal.Header style={{ position: "relative" }}>
           <Modal.Title style={{ color: "black" }}>{selectedProject?.title}</Modal.Title>

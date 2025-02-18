@@ -3,6 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  width: 15px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: hwb(215 9% 8%); 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #333333; 
+}
+
+
+
 body{
   background:black;
   color: white;
