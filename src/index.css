@@ -174,7 +174,7 @@ body{
   /* background: rgb(39,144,250);
   background: linear-gradient(81deg, rgba(39,144,250,1) 70%, rgba(9,167,227,1) 255%); */
   position: relative;
-  z-index: 99999;
+  
   animation: moveUpDown 3s ease-in-out infinite; 
 }
 .img_inner_frame {
@@ -436,21 +436,26 @@ body{
 /* certification */
 
 .certification-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: repeat(250px, minmax(200px, 3fr)); */
+  /* border: 1px solid red; */
+  gap: 35px;
+  justify-items: center;
+  justify-content: center;
   width: 80%;
   margin: 0 auto;
 }
 
 .cert-card {
- width: 100%;
+ width: 350px;
  overflow: hidden;
  height: 250px;
  /* border: 1px solid red; */
   border-radius: 10px;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  text-align: center;
+  
   position: relative;
   /* transition: transform 0.3s ease-in-out; */
 }
@@ -476,15 +481,16 @@ body{
 }
 
 .cert-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: white;
 }
 
 .cert-issuer,
 .cert-date {
   font-size: 14px;
-  color: #777;
+  font-weight: 500;
+  color: white;
 }
 
 .slick-dots{
@@ -776,7 +782,7 @@ margin-top: 18px;
   overflow: hidden;
   box-shadow: 0 0px 6px rgba(79, 79, 79, 0.1);
   text-align: center;
-  width: 300px;
+  width: 24rem;
   /* height: fit-content; */
   /* transition: transform 0.2s, box-shadow 0.2s; */
 }
@@ -849,6 +855,13 @@ margin-top: 18px;
     top: -54% !important;
     left: 5% !important;
   }
+  .card{
+    width: 18rem !important;
+  }
+  .cert-card{
+    width: 285px;
+  }
+ 
 }
 @media only screen and (max-width:475px){
   .img_frame{
@@ -875,6 +888,21 @@ margin-top: 18px;
   .about1_edc{
     width: 95%;
   }
+  .card{
+    width: 20rem;
+  }
+  .cert-card{
+    height: 210px;
+  }
+  .cert-title {
+    font-size: 16px;
+
+  }
+  .cert-issuer,
+.cert-date {
+  font-size: 12px;
+ 
+}
   .introduction_hello{
     font-size: 20px;
   }
@@ -982,6 +1010,9 @@ margin-top: 18px;
   }
 }
 @media only screen and (max-width:768px){
+  .certification-grid{
+    gap: 20px;
+  }
   .introduction_container{
     justify-content: center;
   }
@@ -1040,6 +1071,12 @@ margin-top: 18px;
   }
   .about1_edc{
     padding: 15px 8px;
+  }
+  .certification-grid{
+    width: auto;
+  }
+  .card{
+    width: 20rem;
   }
 }
 @media only screen and (max-width:1024px){

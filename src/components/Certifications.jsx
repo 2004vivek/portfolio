@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 export default function Certifications() {
@@ -13,7 +13,7 @@ export default function Certifications() {
       title: 'C++',
       issuer: 'Cisco',
       date: 'May 2024',
-      image: './greatlearning.jpg',
+      image: './c++.png',
     },
     {
       title: 'Frontend Developer - Html',
@@ -21,10 +21,31 @@ export default function Certifications() {
       date: 'April 2023',
       image: './greatlearning.jpg',
     },
+    {
+      title: 'Python',
+      issuer: 'Pearson',
+      date: 'May 2023',
+      image: './it-specialist-python.jpg',
+    },
+    {
+      title: 'JavaScript',
+      issuer: 'Hackerrank',
+      date: 'Sep 2024',
+      image: './javascript-hack.png',
+    },
+    {
+      title: 'Python',
+      issuer: 'Hackerrank',
+      date: 'May 2023',
+      image: './python-hack.png',
+    },
+
   ];
 
   const ref = useRef(null);
   const isInView = useInView(ref,{once:true});
+
+  const [hoveredcard,sethoveredcard]=useState(null)
 
   return (
     <section className="certifications">
@@ -44,36 +65,47 @@ export default function Certifications() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             whileHover={{ scale: 1.05 }}
+            onMouseEnter={() => sethoveredcard(index)}
+            onMouseLeave={() => sethoveredcard(null)}
           >
             <motion.img
               src={cert.image}
               alt={cert.title}
               className="cert-image"
-              // whileHover={{ filter: 'brightness(0.5)' }}
             />
-            {/* <div className="cert-details">
-              <motion.h3
+            <motion.div style={{width:'100%',height:'40%',background:'white',position:'absolute',bottom:'-100%',padding:'1rem',display:'flex',justifyContent:'center',alignItems:'center'}} 
+            animate={{
+              bottom: hoveredcard === index ? "0%" : "-40%", 
+             background: hoveredcard === index ? "rgba(23, 111, 235, 0.7)" : "",
+              transition: {
+                type: "spring",
+                stiffness: 150,
+                damping: 20,
+              },
+            }}
+            >
+              <div style={{width:'80%'}}>
+              <h3
                 className="cert-title"
-                // whileHover={{ scale: 1.1 }}
-                // transition={{ duration: 0.3 }}
+                style={{paddingTop:'1rem'}}
               >
                 {cert.title}
-              </motion.h3>
-              <motion.p
-                // className="cert-issuer"
-                // whileHover={{ scale: 1.05 }}
-                // transition={{ duration: 0.3 }}
+              </h3>
+              <div
+                className="cert-issuer"
               >
                 {cert.issuer}
-              </motion.p>
-              <motion.p
+              </div>
+              <div
                 className="cert-date"
-                // whileHover={{ scale: 1.05 }}
-                // transition={{ duration: 0.3 }}
+          
               >
                 {cert.date}
-              </motion.p>
-            </div> */}
+              </div>
+              </div>
+              
+            </motion.div>
+            
           </motion.div>
         ))}
       </div>

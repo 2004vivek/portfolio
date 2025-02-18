@@ -103,6 +103,7 @@ export default function AppContextProvider({children}){
         about_box_ref.style.borderBottom = "1px solid transparent";
     }
     function togglerHandler(){
+      console.log("yhidfk")
         sidebar_ref.current.style.width="200px"
     }
     function clossHandler(){
