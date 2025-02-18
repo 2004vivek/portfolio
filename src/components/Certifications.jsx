@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-
+import { FiEye } from "react-icons/fi";
+import { RxCross1 } from "react-icons/rx";
 export default function Certifications() {
   const certifications = [
     {
@@ -46,6 +47,7 @@ export default function Certifications() {
   const isInView = useInView(ref,{once:true});
 
   const [hoveredcard,sethoveredcard]=useState(null)
+  const [selectedimage, setselectedimage] = useState(null);
 
   return (
     <section className="certifications">
@@ -103,12 +105,63 @@ export default function Certifications() {
                 {cert.date}
               </div>
               </div>
-              
+
+              <FiEye
+                size={24}
+                color="white"
+                style={{
+                  position: 'absolute',
+                  right: '1rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                }}
+                onClick={() => setselectedimage(cert.image)}
+              />
             </motion.div>
             
           </motion.div>
         ))}
       </div>
+      {selectedimage && (
+        <div
+          className="image-modal"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0, 0, 0, 0.8)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 999999,
+          }}
+          onClick={() => setselectedimage(null)}
+        >
+          <RxCross1
+          size={30}
+          color="white"
+          style={{
+            position: "absolute",
+            top: "5%",
+            right: "15%",
+            cursor: "pointer",
+      }}
+      onClick={() => setselectedimage(null)}
+    />
+          <img
+            src={selectedimage}
+            alt="Certificate"
+            style={{
+              maxWidth: "90%",
+              maxHeight: "90%",
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+      )}
     </section>
   );
 }
