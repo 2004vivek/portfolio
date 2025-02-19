@@ -7,6 +7,7 @@ import Skills from './Skills';
 import Projects from './Projects';
 import { Element } from 'react-scroll';
 import Certifications from './Certifications';
+import Timeline from './Experience';
 export default function Home() {
   return (
     <>
@@ -17,11 +18,16 @@ export default function Home() {
       <Element name="About" className="element">
         <About />
       </Element>
+     
       <Element name="Skills" className="element">
         <Skills />
-      </Element> 
+      </Element>
+       
       <Element name="Projects" className="element">
         <Projects />
+      </Element>
+      <Element name="Internships" className="element">
+        <Timeline />
       </Element>
       <Element name="Certifications" className="element">
         <Certifications/>

@@ -48,7 +48,7 @@ body{
 }
 .sidebar {
   position: absolute; 
-  top: 100%; 
+  top: 99%; 
   z-index: 99999;
   right: 0;
   width: 100%;
@@ -243,10 +243,10 @@ body{
  box-shadow: 0 0 4px 4px hsl(237, 80%, 69%);
  /* text-shadow: 0 3px 5px whitesmoke; */
  position: relative;
- z-index: 9999;
+ /* z-index: 9999; */
  overflow: hidden;
  transition: all 1s linear;
- z-index: 9999;
+ 
 }
 .download_resume::before{
   position: absolute;

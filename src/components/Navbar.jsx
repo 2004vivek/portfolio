@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { RxCross2 } from "react-icons/rx";
 export default function Navbar() {
     const { togglerHandler, sidebar_ref, clossHandler,isvisible,setvisible } = useContext(AppContext);
-    
+    console.log("this is invisible ",isvisible)
     const variants = {
         hidden: { opacity: 0, y: -20 },
         visible: (i) => ({
@@ -26,19 +26,19 @@ export default function Navbar() {
                 ref={sidebar_ref} 
                 animate={{ height: isvisible ? "240px" : "0" }}  
                 transition={{ duration: 0.3 }}
-                onClick={()=>setvisible(false)}
+               
             >
                 {isvisible && (
-                    <motion.div className='sidebarrroption' initial="hidden" animate="visible" transition={{ staggerChildren: 0.08 }}>
-                        {["Home", "About", "Skills", "Projects", "Certifications", "Contacts"].map((item, index) => (
+                    <motion.div className='sidebarrroption' initial="hidden" animate="visible" transition={{ staggerChildren: 0.08 }} >
+                        {["Home", "About","Internships", "Skills", "Projects", "Certifications", "Contacts",].map((item, index) => (
                             <motion.div 
                                 key={item} 
                                 className="options"
                                 custom={index}
                                 variants={variants}
-                                onClick={()=>setvisible(false)}
+                             
                             >
-                                <Link to={item} smooth={true} duration={1000} style={{ cursor: "pointer" }}>
+                                <Link to={item} smooth={true} duration={1000} style={{ cursor: "pointer" }}   onClick={()=>{console.log("fds");setvisible((prev)=>!prev)}}>
                                     {item}
                                 </Link>
                             </motion.div>
@@ -54,6 +54,7 @@ export default function Navbar() {
                     <Link to="Home" smooth={true} duration={1000}><div style={{ cursor: "pointer" }} className='options'>Home</div></Link>
                     <Link to="About" smooth={true} duration={1000}><div style={{ cursor: "pointer" }} className='options'>About</div></Link>
                     <Link to="Skills" smooth={true} duration={1000}><div style={{ cursor: "pointer" }} className='options'>Skills</div></Link>
+                    <Link to="Internships" smooth={true} duration={1000}><div style={{ cursor: "pointer" }} className='options'>Internships</div></Link>
                     <Link to="Projects" smooth={true} duration={1000}><div style={{ cursor: "pointer" }} className='options'>Projects</div></Link>
                     <Link to="Certifications" smooth={true} duration={1000}><div style={{ cursor: "pointer" }} className='options'>Certifications</div></Link>
                     <Link to="Contacts" smooth={true} duration={1000}><div style={{ cursor: "pointer" }} className='options'>Contacts</div></Link>

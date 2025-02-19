@@ -66,6 +66,11 @@ export default function Projects() {
   return (
     <div className='project_container'>
       <h2 className='about'>Projects</h2>
+      <div className="about_design">
+        <div className="about_1"></div>
+        <div className="who">Built by Me</div>
+        <div className="about_1"></div>
+      </div>
       <div className='project_inner'>
         <motion.div 
           className="card-container d-flex flex-wrap justify-content-center "
