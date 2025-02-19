@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useRef } from "react";
+import { useState } from 'react';
 export const AppContext=createContext();
 export default function AppContextProvider({children}){
 
@@ -8,6 +9,9 @@ export default function AppContextProvider({children}){
     const introduction=useRef(null);
     const  dynamiccolor1=useRef(null);
     const sidebar_ref=useRef('');
+
+    const [isvisible,setvisible]=useState(false)
+
     const IntroductionMoveHandler=(e)=>{
         const introduction_ref = introduction.current;
         const dynamic_ref = dynamiccolor1.current;
@@ -104,13 +108,14 @@ export default function AppContextProvider({children}){
     }
     function togglerHandler(){
       console.log("yhidfk")
-        sidebar_ref.current.style.width="200px"
+       
+        setvisible(!isvisible)
     }
     function clossHandler(){
          sidebar_ref.current.style.width="0"
     }
     const value={
-        handleMouseMove,handleMouseLeave,about_box,dynamiccolor,IntroductionMoveHandler,IntoductionLeaveHandler,introduction, dynamiccolor1,togglerHandler,sidebar_ref,clossHandler
+        handleMouseMove,handleMouseLeave,about_box,dynamiccolor,IntroductionMoveHandler,IntoductionLeaveHandler,introduction, dynamiccolor1,togglerHandler,sidebar_ref,clossHandler,isvisible,setvisible
     }
     return <AppContext.Provider value={value}>
         {children}

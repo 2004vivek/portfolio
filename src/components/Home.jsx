@@ -11,26 +11,25 @@ export default function Home() {
   return (
     <>
     <Navbar />
-      <Element name="home" className="element">
+      <Element name="Home" className="element">
         <Introduction />
       </Element>
-      <Element name="about" className="element">
+      <Element name="About" className="element">
         <About />
       </Element>
-      <Element name="skills" className="element">
+      <Element name="Skills" className="element">
         <Skills />
       </Element> 
-      <Element name="projects" className="element">
+      <Element name="Projects" className="element">
         <Projects />
       </Element>
-      <Element name="certifications" className="element">
+      <Element name="Certifications" className="element">
         <Certifications/>
       </Element>
-      <Element name="contacts" className="element">
+      <Element name="Contacts" className="element">
         <Contact />
       </Element>
-      <Element name="moreInfo" className="element">
-      </Element>
+     
     </>
   )
 }
