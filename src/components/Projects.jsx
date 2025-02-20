@@ -3,10 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import { motion, useInView } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 
 const projects = [
   {
     title: "Skill Grow",
+     color: "hsl(11, 93.40%, 58.60%)",
     description: "A full-stack e-learning platform with secure authentication, seamless course management, and an intuitive user experience for students and instructors.",
     image: "./skillgrow.jpg", 
     technologies: ["Tailwind","Javascript","React","Express","RESTful APIs" ,"Mongodb"],
@@ -20,6 +23,7 @@ const projects = [
   },
   {
     title: "Blood Donation Website",
+    color: "#23C45C" ,
     description: "A Blood Donation website connects donors with recipients, featuring real-time tracking of live stats, including donor counts, making it more impactful.",
     image: "./blooddonation.jpg",
     technologies: ["HTML", "CSS", "JavaScript","React","Express","RESTful APIs" ,"Mongodb"],
@@ -35,6 +39,7 @@ const projects = [
     title: "Shopify E-Commerce App",
     description: "An online shopping platform with category-based navigation and a responsive cart.",
     image: "./shopify.jpg",
+    color: "#3357FF" ,
     sourceUrl: "https://github.com/2004vivek/Shopify",
     technologies: ["HTML", "CSS", "JavaScript","React"],
     features: [
@@ -46,6 +51,7 @@ const projects = [
   },
   {
     title: "Netflix Clone",
+    color: "#FB9014" ,
     description: "A Netflix clone built using React, featuring secure authentication for login and signup, with a fully responsive design optimized for all screen sizes.",
     image: "./netflix_logo.jpg",
     sourceUrl: "https://github.com/2004vivek/Netflix-clone",
@@ -64,6 +70,45 @@ export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  
+  const cardref=useRef([])
+  const [hoverstyle,sethoverstyle]=useState({})
+  const [borderstyle,setborderstyle]=useState({})
+
+  const ProjectMoveHandler = (e, index) => {
+    const card = cardref.current[index];
+
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    sethoverstyle(prev => ({
+      ...prev,
+      [index]: `radial-gradient(circle at ${x}px ${y}px, ${projects[index].color}, transparent 70%)`
+    }));
+
+    setborderstyle(prev => ({
+      ...prev,
+      [index]: `2px solid ${projects[index].color}`
+    }));
+  };
+
+  const ProjectLeaveHandler = (index) => {
+    sethoverstyle(prev => ({
+      ...prev,
+      [index]: 'transparent'
+    }));
+
+    setborderstyle(prev => ({
+      ...prev,
+      [index]: '2px solid transparent'
+    }));
+  };
+
+
+
   return (
     <div className='project_container'>
       <h2 className='about'>Projects</h2>
@@ -76,30 +121,36 @@ export default function Projects() {
         <motion.div 
           className="card-container d-flex flex-wrap justify-content-center "
           ref={ref}
-          
           initial={{ opacity: 0, y: 50 }} 
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {projects.map((project, index) => (
             <Tilt  tiltReverse={true} className='parallax-effect' perspective={500} tiltMaxAngleX={10}
-            tiltMaxAngleY={10} glareEnable={true} glareMaxOpacity={0.5} glareColor="rgb(255,255,255,0.4)" glarePosition="all" glareBorderRadius="10px">
+            tiltMaxAngleY={10} >
             <motion.div 
               key={index} 
+              id={`card-${index}`}
+              ref={el=>cardref.current[index]=el}
               className="card" 
+              onMouseMove={(e) => ProjectMoveHandler(e, index)}
+              onMouseLeave={() => ProjectLeaveHandler(index)}
+              
               onClick={() => setSelectedProject(project)} 
               style={{ 
-                // width: '24rem', 
                 cursor: 'pointer',   
-                backgroundColor: '#11152C', 
                 color: 'white',
-                transform: 'translateZ(190px)'
+                transform: 'translateZ(190px)',
+                background: hoverstyle[index] || 'transparent',
+                border: borderstyle[index] || '2px solid transparent',
+                transition: "background 0.2s ease, border 0.2s ease"
               }}
               initial={{ opacity: 0, y: '100%' }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2}}
             
             >
+               <div id={`dynamic${index}`} ></div>
               <div className='meracard'>
                 <img src={project.image} className="card-img-top" alt={project.title} style={{height:'100%' ,width:'100%'}} />
               </div>

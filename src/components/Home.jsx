@@ -18,11 +18,9 @@ export default function Home() {
       <Element name="About" className="element">
         <About />
       </Element>
-     
       <Element name="Skills" className="element">
         <Skills />
       </Element>
-       
       <Element name="Projects" className="element">
         <Projects />
       </Element>

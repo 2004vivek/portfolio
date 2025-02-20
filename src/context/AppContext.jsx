@@ -106,6 +106,13 @@ export default function AppContextProvider({children}){
         about_box_ref.style.borderRight = "1px solid transparent";
         about_box_ref.style.borderBottom = "1px solid transparent";
     }
+
+
+
+
+
+
+  
     function togglerHandler(){
       console.log("yhidfk")
        

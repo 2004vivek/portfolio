@@ -48,7 +48,7 @@ export default function Introduction() {
   };
   return (
     <div style={{width:'100%',overflow:'hidden',padding:"1rem 0"}}>
-     <Tilt tiltAxis="y" tiltMaxAngleY={5}>
+     <Tilt tiltAxis="y" tiltMaxAngleY={5} tiltReverse={true}>
     <div className='introduction_container' onMouseMove={(e)=>IntroductionMoveHandler(e)} onMouseLeave={IntoductionLeaveHandler} ref={introduction}>
          <div className="dynamiccolor1" ref={dynamiccolor1}></div>
       <div className="introduction_left">

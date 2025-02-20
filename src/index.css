@@ -33,7 +33,7 @@ body{
   position: relative;
   height: 15vh;
   background-color: #000;
-  position: fixed;
+  position: sticky;
   z-index: 9999;
   top: 0;
   left: 0;
@@ -101,7 +101,7 @@ body{
   width: 85%;
 
   margin: auto;
- border: 1px solid red;
+ 
   overflow: hidden;
   /* height: 50vh; */
   padding: 20px 20px;
@@ -187,7 +187,9 @@ body{
   width: 350px;
   border-radius: 100%;
   box-shadow:0 0 10px 7px #109EE6 ;
+  z-index:500;
   /* background: rgb(39,144,250);
+
   background: linear-gradient(81deg, rgba(39,144,250,1) 70%, rgba(9,167,227,1) 255%); */
   position: relative;
   
@@ -389,9 +391,9 @@ body{
 }
 .dynamiccolor1{
   position: absolute;
-  height: 150px;
-  width: 300px;
-  background: radial-gradient(circle,#109EE6,transparent);
+  height: 200px;
+  width: 400px;
+  background: radial-gradient(ellipse,#109EE6,transparent);
   filter: blur(100px);
   transform: translate(-50%,-50%);
   pointer-events: none;
@@ -793,18 +795,16 @@ margin-top: 18px;
 
 
 .card {
-  background-color: #f8f9fa;
-  border:3px solid hwb(229 7% 57%);
+  /* background-color: #f8f9fa; */
+ background: transparent;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 0px 6px rgba(79, 79, 79, 0.1);
   text-align: center;
   width: 24rem;
-  /* height: fit-content; */
-  /* transition: transform 0.2s, box-shadow 0.2s; */
+  position: relative;
+ 
 }
-
-
 
 
 .card:hover {
