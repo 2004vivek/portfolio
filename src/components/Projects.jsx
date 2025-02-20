@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import { motion, useInView } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
+
 const projects = [
   {
     title: "Skill Grow",

@@ -7,6 +7,8 @@ import { SiMinutemailer } from "react-icons/si";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { AppContext } from '../context/AppContext';
 import { motion, useInView } from 'framer-motion';
+import Tilt from 'react-parallax-tilt';
+
 export default function Introduction() {
     const {IntroductionMoveHandler,IntoductionLeaveHandler,introduction,dynamiccolor1}=useContext(AppContext)
     const ref=useRef(null)
@@ -45,6 +47,8 @@ export default function Introduction() {
       document.body.removeChild(link);
   };
   return (
+    <div style={{width:'100%',overflow:'hidden',padding:"1rem 0"}}>
+     <Tilt tiltAxis="y" tiltMaxAngleY={5}>
     <div className='introduction_container' onMouseMove={(e)=>IntroductionMoveHandler(e)} onMouseLeave={IntoductionLeaveHandler} ref={introduction}>
          <div className="dynamiccolor1" ref={dynamiccolor1}></div>
       <div className="introduction_left">
@@ -79,6 +83,8 @@ export default function Introduction() {
         </div>
         
       </div>
+    </div>
+   </Tilt>
     </div>
   )
 }
