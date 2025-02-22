@@ -50,6 +50,20 @@ const projects = [
     ]
   },
   {
+    title: "QuizQuest-An Quiz Website",
+    color: "#8A2BE2" ,
+    description: "This website offers diverse quiz categories with varying difficulty levels to challenge all skill levels.",
+    image: "./quiz.jpg",
+    sourceUrl: "https://github.com/2004vivek/Quiz",
+    technologies: ["HTML", "CSS", "JavaScript","API"],
+    features: [
+      "Multiple Quiz Categories",
+      "Secure Authenication",
+      "User-friendly interface",
+      "Timed Quizzes & Challenges",
+    ]
+  },
+  {
     title: "Netflix Clone",
     color: "#FB9014" ,
     description: "A Netflix clone built using React, featuring secure authentication for login and signup, with a fully responsive design optimized for all screen sizes.",
@@ -62,7 +76,8 @@ const projects = [
       "User-friendly interface",
       "Trending & Categories"
     ]
-  }
+  },
+
 ];
 
 export default function Projects() {
@@ -163,6 +178,7 @@ export default function Projects() {
           ))}
         </motion.div>
       </div>
+      
 
       <Modal 
         show={!!selectedProject} 
@@ -193,7 +209,7 @@ export default function Projects() {
           </Button>
         </Modal.Header>
 
-        <Modal.Body>
+        <Modal.Body style={{background:'rgb(0, 32, 53)'}}>
           <div style={{width:'100%',height:'200px'}}>
             <img src={selectedProject?.image} alt={selectedProject?.title}  height='100%' width={'100%'}/>
           </div>

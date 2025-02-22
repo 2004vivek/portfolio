@@ -23,10 +23,10 @@ export default function AboutDetails({data,index}) {
   return (
     <motion.div  className='about_box' variants={variants} initial="hidden" animate={isInView?'visible':'hidden'} onMouseMove={(e) => handleMouseMove(e, index)} onMouseLeave={() => handleMouseLeave(index)} ref={(el) => (about_box.current[index] = el)}>
             <div className="dynamiccolor1" ref={(el) => (dynamiccolor.current[index] = el)}></div>
-            <div style={{display:"flex",gap:"1rem",placeItems:"center"}}><span><BsStars fontSize={"24px"} color='#109EE6'/></span><span className='about-title'>{data.title}</span></div>
-            <div className='about-para' style={{marginTop:"0.5rem"}}>{data.description}
+            <div style={{display:"flex",gap:"1rem",placeItems:"center"}}><span style={{zIndex:10}}><BsStars fontSize={"24px"} color='#109EE6'/></span><span className='about-title' >{data.title}</span></div>
+            <div className='about-para' style={{marginTop:"0.5rem",zIndex:10}} >{data.description}
             </div>
-            </motion.div>
+    </motion.div>
            
   )
 }
