@@ -33,7 +33,7 @@ body{
   position: relative;
   height: 15vh;
   background-color: #000;
-  position: sticky;
+  position: fixed;
   z-index: 9999;
   top: 0;
   left: 0;
@@ -286,6 +286,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
   /* align-items: center; */
 }
 .about_1{
