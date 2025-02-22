@@ -209,7 +209,7 @@ export default function Projects() {
           </Button>
         </Modal.Header>
 
-        <Modal.Body style={{background:'rgb(0, 32, 53)'}}>
+        <Modal.Body style={{}}>
           <div style={{width:'100%',height:'200px'}}>
             <img src={selectedProject?.image} alt={selectedProject?.title}  height='100%' width={'100%'}/>
           </div>

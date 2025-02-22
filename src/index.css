@@ -181,11 +181,23 @@ body{
 .meracard:hover img {
   transform: scale(1.1);
 }
-
 .img_frame {
   height: 350px;
   width: 350px;
   border-radius: 100%;
+  box-shadow:0 0 10px 7px #109EE6 ;
+  z-index:500;
+  /* background: rgb(39,144,250);
+
+  background: linear-gradient(81deg, rgba(39,144,250,1) 70%, rgba(9,167,227,1) 255%); */
+  position: relative;
+  
+  animation: moveUpDown 3s ease-in-out infinite; 
+}
+.img_frameabout {
+  height: 450px;
+  width: 380px;
+  border-radius: 1rem;
   box-shadow:0 0 10px 7px #109EE6 ;
   z-index:500;
   /* background: rgb(39,144,250);
@@ -211,6 +223,23 @@ body{
   width: 100%;
   object-fit: cover;
   border-radius: 100%;
+}
+.img_inner_frameabout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  height: 100%;
+  width: 100%;
+  /* background-color: antiquewhite; */
+ 
+  overflow: hidden;
+}
+.img_inner_frameabout img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
 }
 .bio{
   width: 70%;
@@ -886,6 +915,10 @@ margin-top: 18px;
     height: 250px;
   
     width: 250px;
+  }
+  .img_frameabout {
+    height: 380px;
+    width: 280px;
   }
   .meracard{
     height: 180px;
