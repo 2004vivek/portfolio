@@ -3,6 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { LuInstagram } from "react-icons/lu";
 import { VscGithub } from "react-icons/vsc";
+import { SiGeeksforgeeks } from "react-icons/si";
 import { SiMinutemailer } from "react-icons/si";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { AppContext } from "../context/AppContext";
@@ -126,6 +127,14 @@ export default function Introduction() {
                   fontSize={"36px"}
                   color="#109EE6"
                 />
+              </div>
+
+              <div
+                onClick={() =>
+                  window.open("https://www.geeksforgeeks.org/user/vks76f0l1/", "_blank")
+                }
+              >
+                <SiGeeksforgeeks className="icon" fontSize={"36px"} color="#109EE6" />
               </div>
             </div>
             <motion.div

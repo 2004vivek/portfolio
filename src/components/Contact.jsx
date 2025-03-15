@@ -1,68 +1,178 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
+import { TiSocialLinkedinCircular } from "react-icons/ti";
+import { SiMinutemailer } from "react-icons/si";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { useForm } from "react-hook-form";
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-export default function Contact() {
+  const onSubmit = async(data) => {
+    console.log(data);
+    try {
+      const response=await axios.post("http://localhost:5000/api/contact",data)
+      console.log(response)
+      toast.success("Message Sent Successfully!");
+      reset()
+
+    } catch (error) {
+      console.log(error?.response?.message||error?.message)
+    }
+ 
+  };
+
   return (
-    <section className="contact">
-          <div className='about'>Contact Us</div>
-         <div className='about_design'>
-        <div className='about_1'></div>
-        <div className='who'>Get In Touch</div>
-        <div className='about_1'></div>
+    <section id="contact" className="contact-section">
+      {/* <div className="section-header"> */}
+      <div className="about">Contact</div>
+      <div className="about_design">
+        <div className="about_1"></div>
+        <div className="who">Contact With Me</div>
+        <div className="about_1"></div>
       </div>
-        <div className="max-width">
-           
-            <div className="contact-content">
-                <div className="column left">
-                    
-                    <p>If you have any questions, comments, or inquiries, please don't hesitate to get in touch with me. Whether you're interested in collaborating on a project, discussing potential job opportunities, or just want to say hello, I'm always happy to hear from new people. You can reach me through the contact form on my portfolio website, or by emailing me directly. I look forward to hearing from you!</p>
-                    <div className="icons">
-                        <div className="row">
-                            <i className="fas fa-user"></i>
-                            <div className="info">
-                                <div className="head">Name</div>
-                                <div className="sub-title">Vivek kumar</div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <i className="fas fa-map-marker-alt"></i>
-                            <div className="info">
-                                <div className="head">Address</div>
-                                <div className="sub-title">Surampalem ,Andhra pradesh</div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <i className="fas fa-envelope"></i>
-                            <div className="info">
-                                <div className="head">Email</div>
-                                <div className="sub-title">vks7633a@gmail.com</div>
-                            </div>
-                        </div>
-                    </div>
+      {/* </div> */}
+      <div className="contact-content">
+        <motion.div
+          className="contact-left"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img className="profile-img" src="./contact.png" alt="Profile" />
+          <div>
+            <h3>Vivek Kumar</h3>
+            <p>Full Stack Developer</p>
+            <p>
+              Feel free to reach out to me for collaborations, internships,
+              projects, or even just to say hi! I'm always open to exciting
+              opportunities.
+            </p>
+            <p>Phone: 8102169611</p>
+            <p>Email: vks7633a@gmail.com</p>
+            <div className="social-icons">
+              <span style={{cursor:'pointer'}}  className="icon-hover">
+                <div
+                  onClick={() =>
+                    (window.location.href = "mailto:vks7633a@gmail.com")
+                  }
+                >
+                  <SiMinutemailer fontSize={"32px"} />
                 </div>
-                <div className="column right">
-                    <div className="text">Message me</div>
-                    <form action="">
-                        <div className="fields">
-                            <div className="field name">
-                                <input type="text" placeholder="Name" required name="Name"/>
-                            </div>
-                            <div className="field email">
-                                <input type="email" placeholder="Email" required name="Email"/>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <input type="text" placeholder="Subject" required name="Subject"/>
-                        </div>
-                        <div className="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message" required name="Message"></textarea>
-                        </div>
-                        <div className="button-area">
-                            <button type="submit">Send message</button>
-                        </div>
-                    </form>
+              </span>
+              <span style={{cursor:'pointer'}} className="icon-hover">
+                <div
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/vivek-kumar-472592258/",
+                      "_blank"
+                    )
+                  }
+                >
+                  <TiSocialLinkedinCircular fontSize={"32px"} />
                 </div>
+              </span>
+              <span style={{cursor:'pointer'}} className="icon-hover">
+              <div
+                  onClick={() =>
+                    window.open(
+                      "https://x.com/VivekKumar74183",
+                      "_blank"
+                    )
+                  }
+                >
+                  <AiFillTwitterCircle fontSize={"32px"} />
+                </div>
+              </span>
             </div>
-        </div>
+          </div>
+        </motion.div>
+        <motion.div
+          className="contact-right"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-group mb-2">
+        <input
+          type="text"
+          placeholder="Your Name"
+          {...register("name", { required: "Name is required" })}
+          className={`w-full p-2 rounded`}
+        />
+        {errors.name && <p className="error-message">{errors.name.message}</p>}
+      </div>
+ 
+      <div className="form-group mb-2">
+        <input
+          type="text"
+          placeholder="Phone Number"
+          {...register("phone", { 
+            required: "Phone Number is required",
+            pattern: {
+              value: /^[0-9]{10}$/,
+              message: "Enter a valid 10-digit phone number",
+            },
+          })}
+          className={`w-full p-2 rounded `}
+        />
+        {errors.phone && <p className="error-message">{errors.phone.message}</p>}
+      </div>
+
+      <div className="form-group mb-2">
+        <input
+          type="email"
+          placeholder="Email"
+          {...register("email", { 
+            required: "Email is required", 
+            pattern: { 
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 
+              message: "Enter a valid email address" 
+            } 
+          })}
+          className={`w-full p-2 rounded `}
+        />
+        {errors.email && <p className="error-message">{errors.email.message}</p>}
+      </div>
+
+      <div className="form-group mb-2">
+        <input
+          type="text"
+          placeholder="Subject"
+          {...register("subject", { required: "Subject is required" })}
+          className={`w-full p-2 rounded `}
+        />
+        {errors.subject && <p className="error-message">{errors.subject.message}</p>}
+      </div>
+
+      <div className="form-group mb-2">
+        <textarea
+          rows="8"
+          placeholder="Message"
+          {...register("message", { required: "Message is required" })}
+          className={`w-full p-2 rounded `}
+        ></textarea>
+        {errors.message && <p className="error-message">{errors.message.message}</p>}
+      </div>
+
+      <button
+        type="submit"
+        className="w-full bg-blue-500 text-white py-2 rounded mt-2 hover:bg-blue-600"
+      >
+        Send Message
+      </button>
+          </form>
+        </motion.div>
+      </div>
     </section>
-  )
-}
+  );
+};
+
+export default Contact;

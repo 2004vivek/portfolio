@@ -10,7 +10,7 @@ const projects = [
   {
     title: "Skill Grow",
      color: "hsl(11, 93.40%, 58.60%)",
-    description: "A full-stack e-learning platform with secure authentication, seamless course management, and an intuitive user experience for students and instructors.",
+    description: "An e-learning platform that seamlessly connects students and instructors, providing real-time tracking of course progress, secure authentication",
     image: "./skillgrow.jpg", 
     technologies: ["Tailwind","Javascript","React","Express","RESTful APIs" ,"Mongodb"],
     sourceUrl: "https://github.com/2004vivek/SkillGroww",
@@ -37,7 +37,7 @@ const projects = [
   },
   {
     title: "Shopify E-Commerce App",
-    description: "An online shopping platform with category-based navigation and a responsive cart.",
+    description: "A E-commerce website offering category-wise product exploration and a responsive interface for an enhanced shopping journey.",
     image: "./shopify.jpg",
     color: "#3357FF" ,
     sourceUrl: "https://github.com/2004vivek/Shopify",
@@ -52,7 +52,7 @@ const projects = [
   {
     title: "QuizQuest-An Quiz Website",
     color: "#8A2BE2" ,
-    description: "This website offers diverse quiz categories with varying difficulty levels to challenge all skill levels.",
+    description: "This interactive website offers various quiz categories, each featuring multiple difficulty levels to challenge users of all skill levels",
     image: "./quiz.jpg",
     sourceUrl: "https://github.com/2004vivek/Quiz",
     technologies: ["HTML", "CSS", "JavaScript","API"],
