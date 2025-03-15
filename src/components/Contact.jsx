@@ -17,13 +17,14 @@ const Contact = () => {
   const onSubmit = async(data) => {
     console.log(data);
     try {
-      const response=await axios.post("http://localhost:5000/api/contact",data)
+      const response=await axios.post("https://portfolio-a56a.onrender.com/api/contact",data)
       console.log(response)
       toast.success("Message Sent Successfully!");
       reset()
 
     } catch (error) {
       console.log(error?.response?.message||error?.message)
+      toast.error("Error Occured Please Resend Your Details")
     }
  
   };
