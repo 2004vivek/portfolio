@@ -53,7 +53,7 @@ export default function Home() {
         collisions: { enable: true },
         move: { 
           enable: true, 
-          speed: { min: 0.5, max: 3 }, 
+          speed: 1.5,
           direction: "none",
           outMode: "bounce",
         },

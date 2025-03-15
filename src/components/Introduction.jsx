@@ -8,6 +8,7 @@ import { SiMinutemailer } from "react-icons/si";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { AppContext } from "../context/AppContext";
 import { motion, useInView } from "framer-motion";
+import { SiLeetcode } from "react-icons/si";
 import Tilt from "react-parallax-tilt";
 
 export default function Introduction() {
@@ -135,6 +136,14 @@ export default function Introduction() {
                 }
               >
                 <SiGeeksforgeeks className="icon" fontSize={"36px"} color="#109EE6" />
+              </div>
+
+              <div
+                onClick={() =>
+                  window.open("https://leetcode.com/u/vivekkumar_8102/", "_blank")
+                }
+              >
+                <SiLeetcode className="icon" fontSize={"36px"} color="#109EE6" />
               </div>
             </div>
             <motion.div
