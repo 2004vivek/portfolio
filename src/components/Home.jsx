@@ -31,24 +31,24 @@ export default function Home() {
       interactivity: {
         events: {
           onClick: { enable: true, mode: "push" },
-          onHover: { enable: true, mode: ["repulse", "bubble"] }, // Combines both effects
+          onHover: { enable: true, mode: ["repulse", "bubble"] }, 
           resize: true,
         },
         modes: {
           push: { quantity: 6 },
-          bubble: { distance: 250, size: 10, duration: 2, opacity: 0.9 },
+          bubble: { distance: 250, size: 12, duration: 2, opacity: 0.9 },
           repulse: { distance: 200, duration: 0.6 },
         },
       },
       particles: {
-        color: { value: ["#ffffff", "#00bfff", "#ff69b4", "#32cd32"] }, // Gradient Colors
+        color: { value: ["#ffffff", "#00bfff", "#ff69b4", "#32cd32"] }, 
         links: {
-          enable: true,
-          distance: 150,
-          color: "#ffffff",
-          opacity: 0.4,
-          width: 1,
-          blink: true,  // Glowing effect
+          enable: false,
+          // distance: 150,
+          // color: "#ffffff",
+          // opacity: 0.4,
+          // width: 1,
+          blink: true,  
         },
         collisions: { enable: true },
         move: { 
@@ -58,7 +58,7 @@ export default function Home() {
           outMode: "bounce",
         },
         number: { density: { enable: true, area: 800 }, value: 100 },
-        opacity: { value: { min: 0.3, max: 0.7 } }, // Twinkling effect
+        opacity: { value: { min: 0.3, max: 0.7 } }, 
         shape: { type: "circle" },
         size: { value: { min: 1, max: 6 } },
       },
